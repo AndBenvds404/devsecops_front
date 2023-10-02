@@ -57,15 +57,7 @@
     margin: 0 8px;
   }
 
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
 
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
-    opacity: 0.8;
-  }
 
   .content {
     display: flex;
@@ -74,6 +66,7 @@
     max-width: 960px;
     flex-direction: column;
     align-items: center;
+    background: goldenrod;
   }
 
 
@@ -242,6 +235,25 @@
   margin-bottom: 10px;
 }
 
+.btn-dialogo{
+  margin-left: 20px;
+  margin-right: 10px; 
+  }
+
+.contain-btn-dialogo{
+  display: flex;
+  justify-content: center;
+
+}
+
+.btn-log-in{
+  margin-right: 3vmin;
+  margin-left: 1vmin;
+}
+
+.layout{
+background: greenyellow;
+}
 
 
 
@@ -266,13 +278,22 @@
         </div>
 
       
-        <p-button (click)="showDialog()" icon="pi pi-external-link" label="Show"></p-button>
+        <p-button class="btn-log-in" (click)="showDialog()" label="Entrar" icon="pi pi-sign-in" ></p-button>
 
         <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '20vw' }" [draggable]="false" [resizable]="false">
-            <p class="m-0">
-                <p-button> si</p-button>
-                <p-button> cancelar</p-button>
-            </p>
+               <div>
+                <p >
+                 ¿Seguro que desea salir ?
+                </p>
+
+                <div class="contain-btn-dialogo">
+                  
+                  
+                  <button class="btn-dialogo">aceptar</button>
+                  <button class="btn-dialogo">cancelar</button>
+                </div>
+                
+               </div> 
         </p-dialog>
 
     </div>
@@ -292,9 +313,9 @@
       
       <ng-template pTemplate="content">
         <div class="barra-lateral-botones">
-          <p-button class="menu-botones">Empresas</p-button>
-          <p-button class="menu-botones" >Empleados</p-button>
-          <p-button class="menu-botones" >Departamentos</p-button>
+          <p-button class="menu-botones" (click)="listarEmpresas()">Empresas</p-button>
+          <p-button class="menu-botones" (click)="listarEmpleado()">Empleados</p-button>
+          <p-button class="menu-botones" (click)="listarDepartamento()">Departamentos</p-button>
         </div>
         
       
@@ -303,7 +324,7 @@
       
   </p-sidebar>
 
-  <h1>test</h1>
+  
 
 
 
@@ -318,9 +339,7 @@
   
 
   <!-- Footer -->
-  <footer>
 
-  </footer>
 
   
 

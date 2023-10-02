@@ -15,8 +15,9 @@ import { EmpleadoEditarComponent } from './components/empleado/empleado-editar/e
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DialogModule } from 'primeng/dialog';
     DepartamentoTablaComponent,
     EmpleadoTablaComponent,
     EmpleadoAgregarComponent,
-    EmpleadoEditarComponent
+    EmpleadoEditarComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { DialogModule } from 'primeng/dialog';
     SidebarModule,
     ButtonModule,
     BrowserAnimationsModule,
-
+    TableModule,
+    InputSwitchModule,
     DialogModule
   ],
   providers: [],
