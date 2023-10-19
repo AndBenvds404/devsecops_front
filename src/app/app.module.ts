@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { EmpresaTablaComponent } from './components/empresa/empresa-tabla/empresa-tabla.component';
 import { EmpresaEditarComponent } from './components/empresa/empresa-editar/empresa-editar.component';
@@ -18,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { InicioComponent } from './components/inicio/inicio.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     EmpleadoTablaComponent,
     EmpleadoAgregarComponent,
     EmpleadoEditarComponent,
+    InicioComponent,
     
   ],
   imports: [

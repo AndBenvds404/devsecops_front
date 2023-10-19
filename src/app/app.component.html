@@ -1,11 +1,3 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <style>
   :host {
@@ -255,11 +247,19 @@
 background: greenyellow;
 }
 
+.contenido{
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
 
 
 
 </style>
+
+
 
 <!-- Toolbar -->
 <header>
@@ -302,14 +302,13 @@ background: greenyellow;
 
 
 <div class="content" role="main">
-
-
-
-
   <p-sidebar [(visible)]="sidebarVisible">
 
     
-      <ng-template pTemplate="header">Principal</ng-template>
+      <ng-template pTemplate="header">
+        <p-button class="menu-botones" (click)="inicio()">Inicio</p-button>
+
+      </ng-template>
       
       <ng-template pTemplate="content">
         <div class="barra-lateral-botones">
@@ -331,19 +330,13 @@ background: greenyellow;
 </div>
 
 
-  <!-- Highlight Card -->
+<div class="contenido">
+  <router-outlet ></router-outlet>
+</div>
 
-
-  <!-- Resources -->
-    <!-- Links -->
-  
-
-  <!-- Footer -->
 
 
   
 
 
 
-
-<router-outlet></router-outlet>

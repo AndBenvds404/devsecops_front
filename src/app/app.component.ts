@@ -27,6 +27,10 @@ export class AppComponent {
     this.router.navigate(["empleado_lista"])   ;
   }
 
+  inicio(){
+    this.router.navigate([""]);
+  }
+
 
 
   sidebarVisible: boolean = false;
