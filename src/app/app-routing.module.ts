@@ -5,12 +5,13 @@ import { DepartamentoTablaComponent } from './components/departamento/departamen
 import { EmpleadoTablaComponent } from './components/empleado/empleado-tabla/empleado-tabla.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
+import { AuthGuard } from './components/keycloak/app.guard';
 
 const routes: Routes = [
 
-  {path:'empresa_lista', component: EmpresaTablaComponent},
-  {path:'departamento_lista', component: DepartamentoTablaComponent},
-  {path:'empleado_lista', component: EmpleadoTablaComponent},
+  {path:'empresa_lista', component: EmpresaTablaComponent, canActivate:[AuthGuard]},
+  {path:'departamento_lista', component: DepartamentoTablaComponent, canActivate:[AuthGuard]},
+  {path:'empleado_lista', component: EmpleadoTablaComponent,canActivate:[AuthGuard]},
   {path:'',component: InicioComponent}
 
 ];

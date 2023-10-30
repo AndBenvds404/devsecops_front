@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-
+import { APP_INITIALIZER } from '@angular/core';
 import { AppComponent } from './app.component';
 import { EmpresaTablaComponent } from './components/empresa/empresa-tabla/empresa-tabla.component';
 import { EmpresaEditarComponent } from './components/empresa/empresa-editar/empresa-editar.component';
@@ -20,6 +20,8 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import {initializeKeycloak} from './components/keycloak/app.keycloak-init'
 
 
 @NgModule({
@@ -45,9 +47,17 @@ import { InicioComponent } from './components/inicio/inicio.component';
     BrowserAnimationsModule,
     TableModule,
     InputSwitchModule,
-    DialogModule
+    DialogModule,
+    KeycloakAngularModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide: APP_INITIALIZER,
+    useFactory: initializeKeycloak,
+    multi: true,
+    deps: [KeycloakService]
+  }
+ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

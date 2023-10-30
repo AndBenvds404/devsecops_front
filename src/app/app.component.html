@@ -278,23 +278,10 @@ background: greenyellow;
         </div>
 
       
-        <p-button class="btn-log-in" (click)="showDialog()" label="Entrar" icon="pi pi-sign-in" ></p-button>
+        <p-button *ngIf=!isAuthenticated class="btn-log-in" (click)="toggleAuthentication()" label="Entrar" icon="pi pi-sign-in" ></p-button>
+        <p-button *ngIf=isAuthenticated class="btn-log-in" (click)="toggleAuthentication()" label="Salir" icon="pi pi-sign-out " >{{userFullName}}</p-button>
 
-        <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '20vw' }" [draggable]="false" [resizable]="false">
-               <div>
-                <p >
-                 ¿Seguro que desea salir ?
-                </p>
 
-                <div class="contain-btn-dialogo">
-                  
-                  
-                  <button class="btn-dialogo">aceptar</button>
-                  <button class="btn-dialogo">cancelar</button>
-                </div>
-                
-               </div> 
-        </p-dialog>
 
     </div>
 
