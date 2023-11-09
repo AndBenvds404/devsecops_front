@@ -20,8 +20,6 @@ export class AppComponent implements OnInit{
     
   }
 
-  
-
 
   ngOnInit() {
     this.keycloak.isLoggedIn().then((loggedIn: boolean) => {
