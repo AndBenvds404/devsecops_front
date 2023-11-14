@@ -19,9 +19,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { InicioComponent } from './components/inicio/inicio.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import {initializeKeycloak} from './components/keycloak/app.keycloak-init'
+import {initializeKeycloak} from './components/keycloak/app.keycloak-init';
+import { InicioComponent } from './components/inicio/inicio.component'
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -36,6 +39,7 @@ import {initializeKeycloak} from './components/keycloak/app.keycloak-init'
     EmpleadoTablaComponent,
     EmpleadoAgregarComponent,
     EmpleadoEditarComponent,
+    MenuComponent,
     InicioComponent,
     
   ],
@@ -48,7 +52,8 @@ import {initializeKeycloak} from './components/keycloak/app.keycloak-init'
     TableModule,
     InputSwitchModule,
     DialogModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    HttpClientModule
   ],
   providers: [
     {

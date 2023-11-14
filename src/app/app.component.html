@@ -58,7 +58,7 @@
     max-width: 960px;
     flex-direction: column;
     align-items: center;
-    background: goldenrod;
+    /*background: goldenrod;*/
   }
 
 
@@ -248,10 +248,11 @@ background: greenyellow;
 }
 
 .contenido{
-  
+  background: #ffffff00;
   width: 100%;
   display: flex;
   justify-content: center;
+  
 }
 
 
@@ -310,16 +311,16 @@ background: greenyellow;
       
   </p-sidebar>
 
-  
+  <div class="contenido">
 
+    <router-outlet ></router-outlet>
+
+  </div>
 
 
 </div>
 
 
-<div class="contenido">
-  <router-outlet ></router-outlet>
-</div>
 
 
 
