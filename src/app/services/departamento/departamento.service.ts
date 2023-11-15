@@ -6,15 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 
-export class EmpresaServicios {
+export class DepartamentoServicios {
   
   private apiUrl = 'http://localhost:8081/departamentos';
 
   constructor(private http: HttpClient) {}
 
-  public getDatos():Observable<any> {
+  public obtenerDepartamentos():Observable<any> {
     return this.http.get<any>(this.apiUrl);
-    
-    
   }
+
+  
+
+
 } 

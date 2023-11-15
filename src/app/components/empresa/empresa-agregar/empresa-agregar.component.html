@@ -1,1 +1,21 @@
-<p>empresa-agregar works!</p>
+
+
+<div>
+    <h1>Nueva Empresa</h1>
+
+    <span class="p-float-label">
+        <p-autoComplete (completeMethod)="search($event)" inputId="nombre-label"></p-autoComplete>
+        <label for="nombre-label">Nombre</label>
+    </span>
+    <span class="p-float-label">
+        <p-autoComplete (completeMethod)="search($event)" inputId="direccion-label"></p-autoComplete>
+        <label for="direccion-label">Direccion</label>
+    </span>
+    <span class="p-float-label">
+        <p-autoComplete (completeMethod)="search($event)" inputId="telefono-label"></p-autoComplete>
+        <label for="telefono-label">Telefono</label>
+    </span>
+
+    <p-button label="Guardar" [outlined]="true"></p-button>
+
+</div>

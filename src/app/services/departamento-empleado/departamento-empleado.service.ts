@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 
-export class EmpresaServicios {
+export class DepartamentoEmpleadoServicios {
   
-  private apiUrl = 'http://localhost:8081/departamentoEmpleado';
+  private apiUrl = 'http://localhost:8081/empleados';
 
   constructor(private http: HttpClient) {}
 
-  public getDatos():Observable<any> {
+  public obtenerEmpleados():Observable<any> {
     return this.http.get<any>(this.apiUrl);
     
     

@@ -13,6 +13,7 @@ import { EmpleadoTablaComponent } from './components/empleado/empleado-tabla/emp
 import { EmpleadoAgregarComponent } from './components/empleado/empleado-agregar/empleado-agregar.component';
 import { EmpleadoEditarComponent } from './components/empleado/empleado-editar/empleado-editar.component';
 //primeFaces
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -53,7 +54,8 @@ import { HttpClientModule } from '@angular/common/http';
     InputSwitchModule,
     DialogModule,
     KeycloakAngularModule,
-    HttpClientModule
+    HttpClientModule,
+    AutoCompleteModule
   ],
   providers: [
     {

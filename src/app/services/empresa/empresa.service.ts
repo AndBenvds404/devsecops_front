@@ -12,9 +12,11 @@ export class EmpresaServicios {
 
   constructor(private http: HttpClient) {}
 
-  public getDatos():Observable<any> {
+  public obtenerEmpresas():Observable<any> {
     return this.http.get<any>(this.apiUrl);
-    
-    
+  }
+
+  public IngrsarEmpresa(body:object):Observable<any> {
+    return this.http.post<any>(this.apiUrl, body);
   }
 } 
