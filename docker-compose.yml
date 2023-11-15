@@ -1,0 +1,9 @@
+version: '3'
+services:
+  angular-app:
+    container_name: nombrecontenedor
+    image: nombreimagen
+    ports:
+      - 4200:4200
+    volumes:
+      - .:/app

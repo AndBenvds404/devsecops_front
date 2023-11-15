@@ -1,0 +1,78 @@
+
+<header>
+
+</header>
+
+<body class="tabla">
+   <p-table [value]="data" dataKey="idEmpr" [tableStyle]="{ 'min-width': '60rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 5rem"></th>
+                <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+                <th pSortableColumn="price">Estado <p-sortIcon field="price"></p-sortIcon></th>
+                <th pSortableColumn="category">btn estado <p-sortIcon field="category"></p-sortIcon></th>
+                <th pSortableColumn="rating">btn editar <p-sortIcon field="rating"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data let-expanded="expanded">
+            <tr>
+                <td>
+                    <button type="button" pButton pRipple [pRowToggler]="data" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                </td>
+                <td>{{ data.nombre }}</td> 
+                <td>{{ data.estado}}</td>
+                <td> <p-inputSwitch (ngModel)="checked"></p-inputSwitch></td>
+                <td><button (click)="listarEmpresa()">editar</button></td>
+                <td>
+               
+                </td>
+            </tr>
+        </ng-template>
+
+<ng-template pTemplate="rowexpansion" let-data>
+  <tr>
+    <td colspan="7">
+      <div class="p-3">
+        <p-table [value]="data" dataKey="idEmpr">
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="direccion">Direccion <p-sortIcon field="direccion"></p-sortIcon></th>
+              <th pSortableColumn="telefono">Telefono <p-sortIcon field="telefono"></p-sortIcon></th>
+              <th pSortableColumn="departamentos">Departamentos <p-sortIcon field="departamentos"></p-sortIcon></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-data>
+            <tr>
+              <td>{{ data.direccion }}</td>
+              <td>{{ data.telefono }}</td>
+        <!-- Corregir la propiedad departamentos -->
+              <td><p-button type="button" icon="pi pi-plus"></p-button></td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="3">No hay datos disponibles.</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </td>
+  </tr>
+</ng-template>
+    </p-table>
+
+
+
+</body>
+
+<footer>
+
+</footer>
+
+<style>
+
+.tabla{
+    background-color: grey;
+    padding-top: 5%;
+}
+</style>

@@ -1,0 +1,84 @@
+
+<header>
+
+</header>
+<body class="tabla">
+   <p-table [value]="empresas" dataKey="nombre" [tableStyle]="{ 'min-width': '60rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 5rem"></th>
+                <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+                <th pSortableColumn="price">Estado <p-sortIcon field="price"></p-sortIcon></th>
+                <th pSortableColumn="category">btn estado <p-sortIcon field="category"></p-sortIcon></th>
+                <th pSortableColumn="rating">btn editar <p-sortIcon field="rating"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-empresa let-expanded="expanded">
+            <tr>
+                <td>
+                    <button type="button" pButton pRipple [pRowToggler]="empresa" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                </td>
+                <td>{{ empresa.nombre }}</td> 
+                <td>{{ empresa.estado}}</td>
+                <td> <p-inputSwitch (ngModel)="checked"></p-inputSwitch></td>
+                <td><button>editar</button></td>
+                <td>
+               
+                </td>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="rowexpansion" let-empresas>
+            <tr>
+                <td colspan="7">
+                    <div class="p-3">
+                        <p-table [value]="empresas" dataKey="id">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th pSortableColumn="id">Direccion <p-sortIcon field="price"></p-sortIcon></th>
+                                    <th pSortableColumn="customer">Telefono <p-sortIcon field="customer"></p-sortIcon></th>
+                                    <th pSortableColumn="date">Departamentos <p-sortIcon field="date"></p-sortIcon></th>
+                                    
+                                    <th style="width: 4rem"></th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-empresa>
+                                <tr>
+                                    <td>{{ empresa.direccion }}</td>
+                                    <td>{{ empresa.telefono }}</td>
+                                    <td>{{ empresa.departamento }}</td>
+                       
+                                    <td>
+                                        
+                                    </td>
+                                    <td><p-button type="button" icon="pi pi-plus"></p-button></td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="6">There are no order for this product yet.</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+
+
+</body>
+
+<footer>
+
+</footer>
+
+<style>
+
+.tabla{
+    padding-top: 5%;
+    background: grey;
+}
+</style>
+
