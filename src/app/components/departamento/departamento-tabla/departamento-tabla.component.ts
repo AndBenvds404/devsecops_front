@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DepartamentoServicios } from 'src/app/services/departamento/departamento.service';
+
 
 @Component({
   selector: 'app-departamento-tabla',
   templateUrl: './departamento-tabla.component.html',
   styleUrls: ['./departamento-tabla.component.css']
 })
-export class DepartamentoTablaComponent {
+export class DepartamentoTablaComponent implements OnInit{
 
+  checked: boolean = false;
+
+  constructor(private serviceDepartamento:DepartamentoServicios){}
+  listaDepartamento: any[]=[]
+
+  ngOnInit(): void {
+
+    this.listarDepartamentos()
+  }
 
   empresas = [
     { id: 1, nombre: 'Departamento 1', 
@@ -29,7 +40,11 @@ export class DepartamentoTablaComponent {
     // ... más objetos de productos
   ];
 
-  checked: boolean = false;
+ listarDepartamentos(){
+    this.serviceDepartamento.obtenerDepartamentos().subscribe(lista=>{
+      this.listaDepartamento = lista
+
+    })
+
+  }
 }
-
-

@@ -1,1 +1,50 @@
-<p>empleado-agregar works!</p>
+<div class="agregar-empleado">
+    <div class="container-empleado">
+
+        <h1>Nuevo Empleado</h1>
+
+        <div class="datos-izq">
+            <span class="p-float-label">
+                <p-autoComplete (completeMethod)="search($event)" inputId="nombre-label"></p-autoComplete>
+                <label for="nombre-label">Nombre</label>
+            </span>
+            <span class="p-float-label">
+                <p-autoComplete (completeMethod)="search($event)" inputId="apellido-label"></p-autoComplete>
+                <label for="apellido-label">Apellido</label>
+            </span>
+            <span class="p-float-label">
+                <p-autoComplete (completeMethod)="search($event)" inputId="email-label"></p-autoComplete>
+                <label for="email-label">Email</label>
+            </span>
+            <span class="p-float-label">
+                <p-autoComplete (completeMethod)="search($event)" inputId="edad-label"></p-autoComplete>
+                <label for="edad-label">Edad</label>
+            </span>
+        </div>
+
+        <div class="datos-der">
+            <span class="p-float-label">
+                <p-autoComplete (completeMethod)="search($event)" inputId="direccion-label"></p-autoComplete>
+                <label for="direccion-label">Direccion</label>
+            </span>
+            <span class="p-float-label">
+                <p-autoComplete (completeMethod)="search($event)" inputId="posicion-label"></p-autoComplete>
+                <label for="posicion-label">Posición</label>
+            </span>
+            <p-scroller [items]="listDepartamentos" [itemSize]="50" styleClass="border-1 surface-border" [style]="{'width': '200px', 'height': '200px'}">
+                <ng-template pTemplate="item" let-item let-options="options">
+                    <div class="flex align-items-center p-2" [ngClass]="{ 'surface-ground': options.odd }" style="height: 50px; cursor: pointer;" (click)="seleccionarDepartamento(item)">
+                        {{ item }}
+                    </div>
+                </ng-template>
+            </p-scroller>
+        </div>
+    
+        <div class="btn-guardar">
+            <p-button label="Guardar" [outlined]="true"></p-button>
+        </div>
+        
+    
+    </div>
+   
+</div>

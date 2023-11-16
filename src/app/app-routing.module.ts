@@ -6,6 +6,9 @@ import { EmpleadoTablaComponent } from './components/empleado/empleado-tabla/emp
 import { MenuComponent } from './components/menu/menu.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { AuthGuard } from './components/keycloak/app.guard';
+import { EmpresaAgregarComponent } from './components/empresa/empresa-agregar/empresa-agregar.component';
+import { DepartamentoAgregarComponent } from './components/departamento/departamento-agregar/departamento-agregar.component';
+import { EmpleadoAgregarComponent } from './components/empleado/empleado-agregar/empleado-agregar.component';
 
 
 const routes: Routes = [
@@ -13,6 +16,10 @@ const routes: Routes = [
   {path:'empresa_lista', component: EmpresaTablaComponent, canActivate:[AuthGuard]},
   {path:'departamento_lista', component: DepartamentoTablaComponent, canActivate:[AuthGuard]},
   {path:'empleado_lista', component: EmpleadoTablaComponent,canActivate:[AuthGuard]},
+  {path:'empleado_agregar', component: EmpleadoAgregarComponent,canActivate:[AuthGuard]},
+  {path:'departamento_agregar', component: DepartamentoAgregarComponent, canActivate:[AuthGuard]},
+  {path:'empresa_agregar', component: EmpresaAgregarComponent, canActivate:[AuthGuard]},
+  
   {path:'menu',component: MenuComponent, canActivate:[AuthGuard]},
   {path:'',component: InicioComponent}
 

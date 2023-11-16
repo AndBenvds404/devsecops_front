@@ -279,8 +279,8 @@ background: greenyellow;
         </div>
 
       
-        <p-button *ngIf=!isAuthenticated class="btn-log-in" (click)="toggleAuthentication()" label="Entrar" icon="pi pi-sign-in" ></p-button>
-        <p-button *ngIf=isAuthenticated class="btn-log-in" (click)="toggleAuthentication()" label="Salir" icon="pi pi-sign-out " >{{userFullName}}</p-button>
+        <p-button *ngIf="!loged" class="btn-log-in" (click)="toggleAuthentication()" label="Entrar" icon="pi pi-sign-in" ></p-button>
+        <p-button *ngIf="loged" class="btn-log-in" (click)="toggleAuthentication()" label="Salir" icon="pi pi-sign-out " >{{userFullName}}</p-button>
 
 
 

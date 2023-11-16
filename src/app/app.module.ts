@@ -20,6 +20,7 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { MenuComponent } from './components/menu/menu.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 
 import { InicioComponent } from './components/inicio/inicio.component'
@@ -58,7 +59,9 @@ import { HttpClientModule } from '@angular/common/http';
     InputSwitchModule,
     DialogModule,
     KeycloakAngularModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientModule,
+    AutoCompleteModule
   ],
   providers: [
     {

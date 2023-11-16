@@ -5,7 +5,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     window.onload = () => {
       keycloak.init({
         config: {
-          url: 'http://192.168.12.204:8080',
+          url: 'http://localhost:8080',
           realm: 'angular-web',
           clientId: 'angular-web-cliente'
         },

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {EmpresaServicios}from '../../../services/empresa/empresa.service'
-
-
 @Component({
   selector: 'app-empresa-tabla',
   templateUrl: './empresa-tabla.component.html',
@@ -10,16 +8,16 @@ import {EmpresaServicios}from '../../../services/empresa/empresa.service'
 export class EmpresaTablaComponent  implements OnInit{
 
 
-  data: any[] = [];
-  
+  listaEmpresa: any[] = [];
+
   checked: boolean = false;
 
-  constructor(private service:EmpresaServicios){
+  constructor(private serviceEmpresa:EmpresaServicios){
 
   }
 
   ngOnInit():void{
-    this.listarEmpresa()
+    this.listarEmpresas()
   }
 
   empresas = [
@@ -47,17 +45,11 @@ export class EmpresaTablaComponent  implements OnInit{
 
 
 
-
-
-
-  listarEmpresa(){
-    this.service.obtenerDatos().subscribe(data=>{
-      this.data = data;
-      console.log(this.data)
-      console.log(this.empresas)
+  listarEmpresas(){
+    this.serviceEmpresa.obtenerEmpresas().subscribe(lista=>{
+      this.listaEmpresa = lista;
+      console.log(this.listaEmpresa)
     })
   }
 
 }
-
-

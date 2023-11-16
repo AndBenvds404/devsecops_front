@@ -1,10 +1,12 @@
-
 <header>
-
 </header>
 
 <body class="tabla">
-   <p-table [value]="data" dataKey="idEmpr" [tableStyle]="{ 'min-width': '60rem' }">
+  <div class="contain-btn-ingresar">
+    <p-button [routerLink]="['/empresa_agregar']" label="Insertar" [outlined]="true" severity="success"></p-button>
+  </div>
+
+   <p-table [value]="listaEmpresa" dataKey="idEmpr" [tableStyle]="{ 'min-width': '60rem' }">
         <ng-template pTemplate="header">
             <tr>
                 <th style="width: 5rem"></th>
@@ -22,13 +24,12 @@
                 <td>{{ data.nombre }}</td> 
                 <td>{{ data.estado}}</td>
                 <td> <p-inputSwitch (ngModel)="checked"></p-inputSwitch></td>
-                <td><button (click)="listarEmpresa()">editar</button></td>
+                <td><button (click)="listarEmpresas()">editar</button></td>
                 <td>
-               
+
                 </td>
             </tr>
         </ng-template>
-
 <ng-template pTemplate="rowexpansion" let-data>
   <tr>
     <td colspan="7">
@@ -60,19 +61,7 @@
   </tr>
 </ng-template>
     </p-table>
-
-
-
 </body>
-
 <footer>
 
 </footer>
-
-<style>
-
-.tabla{
-    background-color: grey;
-    padding-top: 5%;
-}
-</style>

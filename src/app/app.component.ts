@@ -13,59 +13,78 @@ import { KeycloakService } from "keycloak-angular";
 
 export class AppComponent implements OnInit{
   title = 'devsecops_front';
-  isAuthenticated: boolean = false;
+  loged: boolean = false
   userFullName: string = ''; 
 
-  constructor( private router: Router, private keycloak:KeycloakService ){
-    
+  constructor( private router: Router, public keycloak:KeycloakService ){
+
   }
+
+
 
 
   async ngOnInit() {
-    try {
-      this.isAuthenticated = await this.keycloak.isLoggedIn();
-  
-      if (this.isAuthenticated) {
-        try {
-          const profile = await this.keycloak.loadUserProfile();
-          this.userFullName = `${profile.firstName} ${profile.lastName}`;
-          localStorage.setItem('userFullName', this.userFullName);
-        } catch (error) {
-          console.error('Error al cargar el perfil del usuario:', error);
-        }
-      }
-    } catch (error) {
-      console.error('Error al verificar la autenticación:', error);
-    }
-  }
-  
- 
-  toggleAuthentication() {
-    if (this.isAuthenticated) {
-      // Cerrar sesión
-      this.keycloak.logout().then(
-        () => {
-          this.isAuthenticated = false;
-          console.log('Sesión cerrada exitosamente.');
-        },
-        (error) => {
-          console.error('Error al cerrar sesión:', error);
-        }
-      );
+    const storedUserFullName = localStorage.getItem('userFullName');
+    console.log(storedUserFullName)
+    
+      this.loged = await this.keycloak.isLoggedIn();
+      console.log(this.loged); // Imprime true o false
+    
+    
+    if (storedUserFullName) {
+      this.userFullName = storedUserFullName;
     } else {
-      // Iniciar sesión
-      this.keycloak.login().then(
-        () => {
-          this.isAuthenticated = true;
-          console.log('Inicio de sesión exitoso.');
-          // Puedes llamar a loadUserProfile aquí si necesitas cargar el perfil después del inicio de sesión
-        },
-        (error) => {
-          console.error('Error al iniciar sesión:', error);
-        }
-      );
+      this.keycloak.loadUserProfile().then((profile) => {
+        this.userFullName = profile.firstName + ' ' + profile.lastName;
+        localStorage.setItem('userFullName', this.userFullName);
+      }).catch((error) => {
+        console.error('Error al cargar el perfil del usuario:', error);
+      });
     }
   }
+
+  toggleAuthentication() {
+
+    this.keycloak.isLoggedIn()
+      .then((loggedIn: boolean) => {
+        if (loggedIn) {
+          // Si el usuario está autenticado, realiza el cierre de sesión
+          this.keycloak.logout()
+            .then(() => {
+              // Actualiza el estado de autenticación
+              
+            })
+            .catch((error) => {
+              console.error('Error al cerrar sesión:', error);
+            });
+
+            this.keycloak.isLoggedIn().then((loggedIn: boolean) => {
+              console.log(loggedIn); // Imprime true o false
+            });
+            this.loged = false
+            
+        } else {
+          // Si el usuario no está autenticado, realiza el inicio de sesión
+          this.keycloak.login()
+            .then(() => {
+              // Actualiza el estado de autenticación
+              
+            })
+            .catch((error) => {
+              console.error('Error al iniciar sesión:', error);
+            });
+           
+                 this.keycloak.isLoggedIn().then((loggedIn: boolean) => {
+              console.log(loggedIn); // Imprime true o false
+            });
+        }  this.loged = true
+      })
+      .catch((error) => {
+        console.error('Error al verificar la autenticación:', error);
+      });
+    
+  }
+  
 
 
   //rutas barra later
