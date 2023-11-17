@@ -12,14 +12,17 @@ export class EmpresaTablaComponent  implements OnInit{
 
   listaEmpresa: any[] = [];
   
-  checked: boolean = false;
+  checked: boolean = true ;
 
   constructor(private serviceEmpresa:EmpresaServicios){
 
   }
+  items!: string[];
 
   ngOnInit():void{
     this.listarEmpresas()
+    this.items = Array.from({ length: 10 }).map((_, i) => `Departamento #${i}`);
+    
   }
 
   empresas = [
@@ -48,12 +51,16 @@ export class EmpresaTablaComponent  implements OnInit{
 
 
 
+  editarEmpresa(){
+
+  }
 
 
   listarEmpresas(){
     this.serviceEmpresa.obtenerEmpresas().subscribe(lista=>{
       this.listaEmpresa = lista;
       console.log(this.listaEmpresa)
+      console.log(this.empresas)
     })
   }
 

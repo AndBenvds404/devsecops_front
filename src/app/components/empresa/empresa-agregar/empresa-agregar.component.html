@@ -1,21 +1,37 @@
+<div class="agregar-empresa"> 
+
+    <div class="container-empresa">
+        <h1>Nueva Empresa</h1>
+    
+        <div class="datos-izq">
+            <span class="p-float-label">
+                <input pInputText id="username" [(ngModel)]="empresa.nombre" />
+                <label htmlFor="username">Username</label>
+            </span>
+    
+            <span class="p-float-label">
+                <input pInputText id="username" [(ngModel)]="empresa.telefono" />
+                <label htmlFor="username">Telefono</label>
+            </span>
+        </div>
+
+        <div class="datos-der">
+            <span class="p-float-label">
+                <input pInputText id="username" [(ngModel)]="empresa.direccion" />
+                <label htmlFor="username">Direccion</label>
+            </span>
+        </div>
 
 
-<div>
-    <h1>Nueva Empresa</h1>
+    
+        <div class="btn-guardar">
+            <p-button (onClick)="guardarEmpresa()" label="Guardar" [outlined]="true"></p-button>
+        </div>
+        
+    
+    </div>
 
-    <span class="p-float-label">
-        <p-autoComplete (completeMethod)="search($event)" inputId="nombre-label"></p-autoComplete>
-        <label for="nombre-label">Nombre</label>
-    </span>
-    <span class="p-float-label">
-        <p-autoComplete (completeMethod)="search($event)" inputId="direccion-label"></p-autoComplete>
-        <label for="direccion-label">Direccion</label>
-    </span>
-    <span class="p-float-label">
-        <p-autoComplete (completeMethod)="search($event)" inputId="telefono-label"></p-autoComplete>
-        <label for="telefono-label">Telefono</label>
-    </span>
-
-    <p-button label="Guardar" [outlined]="true"></p-button>
+    
 
 </div>
+

@@ -25,8 +25,9 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import {initializeKeycloak} from './components/keycloak/app.keycloak-init';
 import { InicioComponent } from './components/inicio/inicio.component'
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms'
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,10 @@ import { HttpClientModule } from '@angular/common/http';
     DialogModule,
     KeycloakAngularModule,
     HttpClientModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    InputTextModule,
+    FormsModule,
+    DropdownModule
   ],
   providers: [
     {

@@ -10,44 +10,27 @@ import { EmpleadoServicios } from 'src/app/services/empleado/empleado.service';
 export class EmpleadoTablaComponent implements OnInit{
 
   checked: boolean = false;
-  listaEmpleado: any[]=[];
-  
+  listaEmpleados: any[]=[];
+  items!: string[];
   constructor(private serviceEmpleado:EmpleadoServicios){}
 
   ngOnInit(): void {
     this.listarEmpleados()    
+    this.items = Array.from({ length: 10 }).map((_, i) => `Departamento #${i}`);
+    
   }
 
-  empresas = [
-    { id: 1, nombre: 'Empleado 1', 
-      estado: 'activo', 
-      direcion:'Av aaaa y calle bbb',
-      telefono:'0999999', 
-      departamento:{nombre:'departamento1',
-                    descripcion:'esto es una descripcion'
-                    }
-    },    
-    { id: 2, nombre: 'Empleado 2', 
-    estado: 'activo', 
-    direcion:'Av xxxxx y calle ssss',
-    telefono:'099994444', 
-    departamento:{nombre:'departamento2',
-                  descripcion:'esto es una descripcion'
-                  }
-  },
-    
-    // ... más objetos de productos
-  ];
 
 
   listarEmpleados(){
     this.serviceEmpleado.obtenerEmpleados().subscribe(lista=>{
-      this.listaEmpleado = lista
-
+      this.listaEmpleados = lista
+      console.log(this.listaEmpleados)
     })
-    
   }
-  
+
+  editarEmpleado(){
+
+  }
+
 }
-
-

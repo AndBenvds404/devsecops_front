@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartamentoServicios } from 'src/app/services/departamento/departamento.service';
 
+
 @Component({
   selector: 'app-departamento-tabla',
   templateUrl: './departamento-tabla.component.html',
@@ -14,7 +15,7 @@ export class DepartamentoTablaComponent implements OnInit{
   listaDepartamento: any[]=[]
 
   ngOnInit(): void {
-     
+
     this.listarDepartamentos()
   }
 
@@ -44,8 +45,6 @@ export class DepartamentoTablaComponent implements OnInit{
       this.listaDepartamento = lista
 
     })
-    
+
   }
 }
-
-

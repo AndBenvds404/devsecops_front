@@ -1,9 +1,9 @@
-
 <header>
 
 </header>
 
 <body class="tabla">
+  <h1>Lista Departamentos</h1>
   <div class="contain-btn-ingresar">
     <p-button [routerLink]="['/departamento_agregar']" label="Insertar" [outlined]="true" severity="success"></p-button>
   </div>
@@ -27,7 +27,7 @@
                 <td> <p-inputSwitch (ngModel)="checked"></p-inputSwitch></td>
                 <td><button (click)="listarDepartamentos()">editar</button></td>
                 <td>
-               
+
                 </td>
             </tr>
         </ng-template>
@@ -65,11 +65,7 @@
     </p-table>
 
 
-
 </body>
-
 <footer>
 
 </footer>
-
-

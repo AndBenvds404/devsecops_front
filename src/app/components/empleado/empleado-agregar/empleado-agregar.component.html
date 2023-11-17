@@ -1,1 +1,51 @@
-<p>empleado-agregar works!</p>
+<div class="agregar-empleado">
+    <div class="container-empleado">
+
+        <h1>Nuevo Empleado</h1>
+
+        <div class="datos-izq">
+            <span class="p-float-label">
+                <input pInputText id="nombre" [(ngModel)]="empleado.nombre" />
+                <label htmlFor="nombre">Nombre</label>
+            </span>
+            <span class="p-float-label">
+                <input pInputText id="apellido" [(ngModel)]="empleado.apellido" />
+                <label htmlFor="apellido">Apellido</label>
+            </span>
+            <span class="p-float-label">
+                <input pInputText id="email" [(ngModel)]="empleado.correo" />
+                <label htmlFor="email">Email</label>
+            </span>
+            <span class="p-float-label">
+                <input pInputText id="edad" [(ngModel)]="empleado.edad" />
+                <label htmlFor="edad">Edad</label>
+            </span>
+        </div>
+
+
+        <div class="datos-der">
+            <span class="p-float-label">
+                <input pInputText id="dirección" [(ngModel)]="empleado.direccion" />
+                <label htmlFor="dirección">Dirección</label>
+            </span>
+            <span class="p-float-label">
+                <input pInputText id="posición" [(ngModel)]="empleado.posicion" />
+                <label htmlFor="posición">Posición</label>
+            </span>
+            <p-scroller [items]="listDepartamentos" [itemSize]="50" styleClass="border-1 surface-border" [style]="{'width': '200px', 'height': '200px'}">
+                <ng-template pTemplate="item" let-item let-options="options">
+                    <div class="flex align-items-center p-2 item-scroll" [ngClass]="{ 'surface-ground': options.odd }" (click)="seleccionarDepartamento(item)">
+                        {{ item }}
+                    </div>
+                </ng-template>
+            </p-scroller>
+        </div>
+    
+        <div class="btn-guardar">
+            <p-button (onClick)="guardarEmpleado()" label="Guardar" [outlined]="true"></p-button>
+        </div>
+        
+    
+    </div>
+   
+</div>

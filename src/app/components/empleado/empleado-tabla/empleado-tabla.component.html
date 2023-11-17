@@ -4,65 +4,84 @@
 </header>
 
 <body class="tabla">
+  <h1>Lista Empleado</h1>
   <div class="contain-btn-ingresar">
     <p-button [routerLink]="['/empleado_agregar']" label="Insertar" [outlined]="true" severity="success"></p-button>
   </div>
-   <p-table [value]="listaEmpleado" dataKey="idEmpr" [tableStyle]="{ 'min-width': '60rem' }">
-        <ng-template pTemplate="header">
-            <tr>
-                <th style="width: 5rem"></th>
-                <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
-                <th pSortableColumn="price">Estado <p-sortIcon field="price"></p-sortIcon></th>
-                <th pSortableColumn="category">btn estado <p-sortIcon field="category"></p-sortIcon></th>
-                <th pSortableColumn="rating">btn editar <p-sortIcon field="rating"></p-sortIcon></th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-data let-expanded="expanded">
-            <tr>
-                <td>
-                    <button type="button" pButton pRipple [pRowToggler]="data" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-                </td>
-                <td>{{ data.nombre }}</td> 
-                <td>{{ data.estado}}</td>
-                <td> <p-inputSwitch (ngModel)="checked"></p-inputSwitch></td>
-                <td><button (click)="listarEmpleados()">editar</button></td>
-                <td>
-               
-                </td>
-            </tr>
-        </ng-template>
+  
+  <p-table [value]="listaEmpleados" dataKey="idEmpr" [tableStyle]="{ 'min-width': '60rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 5rem"></th>
+        <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+        <th pSortableColumn="estado">Estado <p-sortIcon field="estado"></p-sortIcon></th>
+        <th>btn estado</th>
+        <th>btn editar</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data let-expanded="expanded">
+      <tr>
+        <td>
+          <button type="button" pButton pRipple [pRowToggler]="data" class="p-button-text p-button-rounded p-button-plain"
+            [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+        </td>
+        <td>{{ data.nombre }}</td>
+        <td>{{ data.estado ? 'Activo' : 'Inactivo' }}</td>
+        <td>
+          <p-inputSwitch [(ngModel)]="data.estado"></p-inputSwitch>
+        </td>
+        <td>
+          <button (click)="editarEmpleado()">Editar</button>
+        </td>
+      </tr>
+    </ng-template>
+  
+    <ng-template pTemplate="rowexpansion" let-data>
+      <tr>
+        <td colspan="5">
+          <div class="p-3">
+            <p-table [value]="data" dataKey="idEmpl">
+                <ng-template pTemplate="header">
+                  <tr class="tabla-plegable">
+                    <th pSortableColumn="nombre">Nombre </th>
+                    <th pSortableColumn="apellido">Apellido </th>
+                    <th pSortableColumn="correo">Email </th>
+                    <th pSortableColumn="edad">Edad </th>
+                    <th pSortableColumn="posicion">Posición </th>
+                    <th pSortableColumn="departamentos">Departamentos</th>
+                  </tr>
 
-<ng-template pTemplate="rowexpansion" let-data>
-  <tr>
-    <td colspan="7">
-      <div class="p-3">
-        <p-table [value]="data" dataKey="idEmpr">
-          <ng-template pTemplate="header">
-            <tr>
-              <th pSortableColumn="direccion">Direccion <p-sortIcon field="direccion"></p-sortIcon></th>
-              <th pSortableColumn="telefono">Telefono <p-sortIcon field="telefono"></p-sortIcon></th>
-              <th pSortableColumn="departamentos">Departamentos <p-sortIcon field="departamentos"></p-sortIcon></th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-data>
-            <tr>
-              <td>{{ data.direccion }}</td>
-              <td>{{ data.telefono }}</td>
-        <!-- Corregir la propiedad departamentos -->
-              <td><p-button type="button" icon="pi pi-plus"></p-button></td>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="emptymessage">
-            <tr>
-              <td colspan="3">No hay datos disponibles.</td>
-            </tr>
-          </ng-template>
-        </p-table>
-      </div>
-    </td>
-  </tr>
-</ng-template>
-    </p-table>
+                  <tr class="tabla-plegable">
+                      <td>{{ data.nombre }}</td>
+                      <td>{{ data.apellido }}</td>
+                      <td>{{ data.correo }}</td>
+                      <td>{{ data.edad }}</td>
+                      <td>{{ data.posicion }}</td>
+                      
+                      <td >
+                        <p-scroller [items]="items" [itemSize]="50" scrollHeight="200px" >
+                          <ng-template pTemplate="item" let-item let-options="options">
+                              <div class="flex align-items-center p-2 scroll-departamentos" [ngClass]="{ 'surface-ground': options.odd }" style="height: 50px; cursor: pointer;">{{ item }}</div>
+                          </ng-template>
+                        </p-scroller>
+                  </td>
+                    </tr>
+                </ng-template>
+  
+                  
+  
+                  <ng-template pTemplate="emptymessage">
+                    <tr>
+                      <td colspan="3">No hay datos disponibles.</td>
+                    </tr>
+                  </ng-template>
+            </p-table>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  
 
 
 
@@ -71,3 +90,5 @@
 <footer>
 
 </footer>
+
+
